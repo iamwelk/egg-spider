@@ -7,10 +7,12 @@ class NewsController extends Controller {
     // 获取数据显示到新闻页面
 
     const list = await this.service.news.getNewsList();
+    const username = this.ctx.session.username;
 
 
     await this.ctx.render('news', {
       list,
+      username,
     });
   }
 

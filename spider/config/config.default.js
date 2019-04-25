@@ -7,7 +7,11 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1532656413112_8161';
 
   // add your config here
-  config.middleware = [];
+  config.middleware = [ 'printdate', 'forbidip' ];
+  // 给中间件传参
+  // config.printdate = {
+  //   name: '123',
+  // };
 
   // 配置ejs模板引擎
   config.view = {
