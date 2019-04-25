@@ -4,10 +4,24 @@ const Controller = require('egg').Controller;
 
 class NewsController extends Controller {
   async index() {
-    // this.ctx.body = '首页';
-    // 获取数据，显示到页面
+    // 获取数据显示到新闻页面
+
     const list = await this.service.news.getNewsList();
-    this.ctx.body = list;
+
+
+    await this.ctx.render('news', {
+      list,
+    });
+  }
+
+  async content() {
+    // 获取get传值
+    const aid = this.ctx.query.aid;
+    const list = await this.service.news.getNewsContent(aid);
+
+    await this.ctx.render('newscontent', {
+      list: list[0],
+    });
   }
 }
 

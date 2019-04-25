@@ -1,32 +1,25 @@
-/* eslint valid-jsdoc: "off" */
-
 'use strict';
 
-/**
- * @param {Egg.EggAppInfo} appInfo app info
- */
 module.exports = appInfo => {
-  /**
-   * built-in config
-   * @type {Egg.EggAppConfig}
-   **/
   const config = exports = {};
 
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_1556180626159_8244';
+  config.keys = appInfo.name + '_1532656413112_8161';
 
-  // add your middleware config here
+  // add your config here
   config.middleware = [];
 
-  // add your user config here
-  const userConfig = {
-    // myAppName: 'egg',
-    baseUrl: 'http://www.phonegap100.com',
+  // 配置ejs模板引擎
+  config.view = {
+    mapping: {
+      '.html': 'ejs',
+    },
   };
 
 
-  return {
-    ...config,
-    ...userConfig,
-  };
+  // 配置公共的api
+
+  config.api = 'http://www.phonegap100.com/';
+
+  return config;
 };
