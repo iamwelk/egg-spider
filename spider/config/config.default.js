@@ -25,5 +25,28 @@ module.exports = appInfo => {
 
   config.api = 'http://www.phonegap100.com/';
 
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET, HEAD, PUT, POST, DELETE, PATHC',
+  };
+
+  config.security = {
+    csrf: {
+      enable: false,
+      useSession: true,
+      cookieName: 'csrfToken',
+      sessionName: 'csrfToken',
+    },
+  };
+
+  config.mongoose = {
+    url: 'mongodb://127.0.0.1/local',
+    options: {},
+  };
+
+  // config.multipart = {
+  //   mode: 'file',
+  // };
+
   return config;
 };

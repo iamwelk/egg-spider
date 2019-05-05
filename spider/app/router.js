@@ -10,4 +10,8 @@ module.exports = app => {
   router.get('/news', controller.news.index);
 
   router.get('/newscontent', controller.news.content);
+
+  router.post('/login', controller.user.login);
+
+  router.post('/upload', controller.upload.index);
 };
